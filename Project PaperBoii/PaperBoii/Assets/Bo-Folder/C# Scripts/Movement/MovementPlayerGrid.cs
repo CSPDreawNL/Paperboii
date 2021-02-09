@@ -9,46 +9,52 @@ public class MovementPlayerGrid : MonoBehaviour
     [SerializeField] private float LaneSpacing;
 
     [Header("Dev Statistics")]
-    [SerializeField] private List<Vector2> lanePositions = new List<Vector2>();
+    [SerializeField] private List<Vector3> lanePositions = new List<Vector3>();
     [SerializeField] private int playerLaneIndex;
 
     private KeyBinds currentKeyBinds;
 
     private void Awake()
     {
-        EventManager.current.updateKeyBinds += UpdateKeyBinds;
-
         for (int i = 0; i < LaneCount; i++)
         {
-            lanePositions.Add(new Vector2(-LaneSpacing * (float)LaneCount / 2 + i + LaneSpacing / 2, 0));
+            lanePositions.Add(new Vector3(0, 0, -LaneSpacing * (float)LaneCount / 2 + i + LaneSpacing / 2));
         }
+    }
+
+    private void Start()
+    {
+        EventManager.current.updateKeyBinds += UpdateKeyBinds;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(currentKeyBinds.moveLeft))
         {
-            transform.position += new Vector3(0, 0, GetNewPlayerLaneIndex(-1));
+            transform.position = lanePositions[GetNewPlayerLaneIndex(-1)];
         }
 
         if (Input.GetKeyDown(currentKeyBinds.moveRight))
         {
-            transform.position += new Vector3(0, 0, GetNewPlayerLaneIndex(1));
+            transform.position = lanePositions[GetNewPlayerLaneIndex(1)];
         }
     }
 
     private int GetNewPlayerLaneIndex(int iDifference)
     {
-        int result = playerLaneIndex;
+        playerLaneIndex += iDifference;
 
-        result += iDifference;
-
-        while (result >= lanePositions.Count)
+        while (playerLaneIndex >= lanePositions.Count)
         {
-            result -= lanePositions.Count;
+            playerLaneIndex = lanePositions.Count - 1;
         }
 
-        return result;
+        while (playerLaneIndex < 0)
+        {
+            playerLaneIndex = 0;
+        }
+
+        return playerLaneIndex;
     }
 
     private void UpdateKeyBinds(KeyBinds iKeyBinds)
