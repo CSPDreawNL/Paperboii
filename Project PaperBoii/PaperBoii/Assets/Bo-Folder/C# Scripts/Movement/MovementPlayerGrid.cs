@@ -9,17 +9,22 @@ public class MovementPlayerGrid : MonoBehaviour
     [SerializeField] private float LaneSpacing;
     [SerializeField] private int startingLaneIndex;
 
+    [Header("Options")]
+    [SerializeField] private float forwardSpeed;
+
     [Header("Dev Statistics")]
     [SerializeField] private List<Vector3> lanePositions = new List<Vector3>();
     [SerializeField] private int playerLaneIndex;
 
     private KeyBinds currentKeyBinds;
 
+    Vector3Int prevPlayerPosition;
+
     private void Awake()
     {
         for (int i = 0; i < LaneCount; i++)
         {
-            lanePositions.Add(new Vector3(0, 0, (-LaneCount / 2 + i + .5f) * LaneSpacing));
+            lanePositions.Add(new Vector3(0, 0, (-LaneCount / 2 + i) * LaneSpacing));
         }
     }
 
@@ -32,14 +37,25 @@ public class MovementPlayerGrid : MonoBehaviour
 
     private void Update()
     {
+        transform.position += new Vector3(forwardSpeed, 0) * Time.deltaTime;
+
         if (Input.GetKeyDown(currentKeyBinds.moveLeft))
         {
-            transform.position = lanePositions[GetNewPlayerLaneIndex(-1)];
+            transform.position = lanePositions[GetNewPlayerLaneIndex(1)] + new Vector3(transform.position.x, 0);
         }
 
         if (Input.GetKeyDown(currentKeyBinds.moveRight))
         {
-            transform.position = lanePositions[GetNewPlayerLaneIndex(1)];
+            transform.position = lanePositions[GetNewPlayerLaneIndex(-1)] + new Vector3(transform.position.x, 0);
+        }
+
+        Vector3Int playerPositionInt = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
+
+        if (prevPlayerPosition != playerPositionInt)
+        {
+            prevPlayerPosition = playerPositionInt;
+
+            EventManager.current.PlayerMoved(playerPositionInt);
         }
     }
 

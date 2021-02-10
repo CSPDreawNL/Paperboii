@@ -208,7 +208,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3d6e14735efe6694797d57999c235c58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &123124425
 MonoBehaviour:
@@ -313,6 +313,7 @@ MonoBehaviour:
   LaneCount: 5
   LaneSpacing: 1
   startingLaneIndex: 2
+  forwardSpeed: 3
   lanePositions: []
   playerLaneIndex: 0
 --- !u!4 &372452570
@@ -327,7 +328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -498,13 +499,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3535534, y: -0.61237246, z: 0.3535534, w: 0.61237246}
-  m_LocalPosition: {x: 2, y: 8, z: 0}
+  m_LocalRotation: {x: 0.4181191, y: 0.57024246, z: -0.4181191, w: 0.57024246}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 60, y: -90, z: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 72.5, y: 90, z: 0}
 --- !u!1 &1426141521
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,8 +577,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860594619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalPosition: {x: 5.55, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 96857059}
   m_RootOrder: 0
@@ -615,7 +616,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 995558a6649194a429687edb680c1bef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -655,6 +656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025006412}
   - component: {fileID: 2025006413}
+  - component: {fileID: 2025006414}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -689,3 +691,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridLaneCount: 5
+--- !u!114 &2025006414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025006411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370e02be783f26747aa6a69119f13534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testBlock: {fileID: 11400000, guid: 37879c06fa540cf4990c7e33b01f137d, type: 2}
+  LaneCount: 5
+  LaneSpacing: 1
+  SpawnHeight: 0
+  blockList: []
+  rowIndex: 0
