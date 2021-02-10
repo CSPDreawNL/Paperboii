@@ -25,11 +25,11 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        velocity += new Vector3(ClampedLerp(velocity.x, disiredVelocity.x, acceleration), ClampedLerp(velocity.y, disiredVelocity.y, acceleration), ClampedLerp(velocity.z, disiredVelocity.z, acceleration));
+        velocity += new Vector3(ExtraMath.current.ClampedFloatLerp(velocity.x, disiredVelocity.x, acceleration), ExtraMath.current.ClampedFloatLerp(velocity.y, disiredVelocity.y, acceleration), ExtraMath.current.ClampedFloatLerp(velocity.z, disiredVelocity.z, acceleration));
 
         velocity.Scale(GetBlockedAxisVector());
 
-        mytrans.position += velocity * Mathf.Clamp(Time.deltaTime, 0, 1);
+        mytrans.position += velocity;
     }
 
     public void SetDisiredVelocity(Vector3 iDisiredVelocity)
@@ -49,21 +49,6 @@ public class Movement : MonoBehaviour
         velocity += iKnockback;
 
         Move();
-    }
-
-    // Calculators
-    private float ClampedLerp(float a, float b, float time)
-    {
-        if (time != 0)
-        {
-            float difference = b - a;
-            float distance = Mathf.Abs(difference);
-            return Mathf.Clamp(difference * Time.deltaTime / time, -distance, distance);
-        }
-        else
-        {
-            return b - a;
-        }
     }
 
     private Vector3 GetBlockedAxisVector()

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         new EventManager();
+        new ExtraMath();
     }
 
     void Start()

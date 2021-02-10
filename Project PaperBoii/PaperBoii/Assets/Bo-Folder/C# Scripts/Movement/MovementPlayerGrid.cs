@@ -7,6 +7,7 @@ public class MovementPlayerGrid : MonoBehaviour
     [Header("Positioning")]
     [SerializeField] private int LaneCount;
     [SerializeField] private float LaneSpacing;
+    [SerializeField] private int startingLaneIndex;
 
     [Header("Dev Statistics")]
     [SerializeField] private List<Vector3> lanePositions = new List<Vector3>();
@@ -18,13 +19,15 @@ public class MovementPlayerGrid : MonoBehaviour
     {
         for (int i = 0; i < LaneCount; i++)
         {
-            lanePositions.Add(new Vector3(0, 0, -LaneSpacing * (float)LaneCount / 2 + i + LaneSpacing / 2));
+            lanePositions.Add(new Vector3(0, 0, (-LaneCount / 2 + i + .5f) * LaneSpacing));
         }
     }
 
     private void Start()
     {
         EventManager.current.updateKeyBinds += UpdateKeyBinds;
+
+        transform.position = lanePositions[GetNewPlayerLaneIndex(startingLaneIndex)];
     }
 
     private void Update()
