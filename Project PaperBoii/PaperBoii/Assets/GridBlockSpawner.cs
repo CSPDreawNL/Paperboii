@@ -20,8 +20,12 @@ public class GridBlockSpawner : MonoBehaviour
 
     private int prevSpawnPositionX = 0;
 
+    private GridObjectBlock currentBlock;
+
     void Start()
     {
+        currentBlock = blockList[Random.Range(0, blockList.Count)];
+
         EventManager.current.playerMoved += Spawn;
     }
 
@@ -44,11 +48,13 @@ public class GridBlockSpawner : MonoBehaviour
         {
             prevSpawnPositionX = iSpawnPosition.x;
 
-            SpawnRow(testBlock.GetRowObjects(rowIndex), iSpawnPosition.x);
+            SpawnRow(currentBlock.GetRowObjects(rowIndex), iSpawnPosition.x);
 
             if (rowIndex >= testBlock.GetLongestLane())
             {
                 rowIndex = 0;
+
+                currentBlock = blockList[Random.Range(0, blockList.Count)];
             }
             else
             {

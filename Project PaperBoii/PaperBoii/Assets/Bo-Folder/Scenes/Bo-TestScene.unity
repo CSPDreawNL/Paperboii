@@ -706,6 +706,9 @@ MonoBehaviour:
   testBlock: {fileID: 11400000, guid: 37879c06fa540cf4990c7e33b01f137d, type: 2}
   LaneCount: 5
   LaneSpacing: 1
-  SpawnHeight: 0
-  blockList: []
+  SpawnHeight: 10
+  blockList:
+  - {fileID: 11400000, guid: 37879c06fa540cf4990c7e33b01f137d, type: 2}
+  - {fileID: 11400000, guid: 531e916a0cfbc614cbf00752441b034d, type: 2}
+  - {fileID: 11400000, guid: c7e51e7aaca294943aee6e157046093b, type: 2}
   rowIndex: 0
