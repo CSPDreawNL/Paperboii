@@ -18,7 +18,7 @@ public class MovementPlayerGrid : MonoBehaviour
 
     private KeyBinds currentKeyBinds;
 
-    Vector3Int prevPlayerPosition;
+    [SerializeField] Vector3Int prevPlayerPosition;
 
     private void Awake()
     {
@@ -49,7 +49,7 @@ public class MovementPlayerGrid : MonoBehaviour
             transform.position = lanePositions[GetNewPlayerLaneIndex(-1)] + new Vector3(transform.position.x, 0);
         }
 
-        Vector3Int playerPositionInt = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
+        Vector3Int playerPositionInt = new Vector3Int((int)(transform.position.x + .5f), (int)(transform.position.y + .5f), (int)(transform.position.z));
 
         if (prevPlayerPosition != playerPositionInt)
         {

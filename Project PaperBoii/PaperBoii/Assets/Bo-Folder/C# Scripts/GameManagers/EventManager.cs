@@ -6,10 +6,12 @@ public class EventManager
     public static EventManager current;
 
     // Delegates
+    public delegate void EmptyDelegate();
     public delegate void keyBindDelegate(KeyBinds iKeyBinds);
     public delegate void Vector3IntDelegate(Vector3Int iVector3Int);
 
     // Events
+    public event EmptyDelegate onPlayerDie;
     public event keyBindDelegate updateKeyBinds;
     public event Vector3IntDelegate playerMoved;
 
@@ -31,6 +33,14 @@ public class EventManager
         if (playerMoved != null)
         {
             playerMoved(iVector3Int);
+        }
+    }
+
+    public void OnPlayerDie()
+    {
+        if (onPlayerDie != null)
+        {
+            onPlayerDie();
         }
     }
 }

@@ -6,6 +6,7 @@ public class GridBlockSpawner : MonoBehaviour
 {
     [Header("Recourses")]
     [SerializeField] private GridObjectBlock testBlock;
+    [SerializeField] private Grid grid;
 
     [Header("Positioning")]
     [SerializeField] private int LaneCount;
@@ -37,7 +38,7 @@ public class GridBlockSpawner : MonoBehaviour
         {
             if (iRow[laneIndex] != null)
             {
-                Instantiate(iRow[laneIndex], new Vector3(iSpawnPosition + SpawnHeight, 0, (-LaneCount / 2 + laneIndex) * LaneSpacing), Quaternion.identity);
+                grid.GridAddObject(Instantiate(iRow[laneIndex], new Vector3(iSpawnPosition + SpawnHeight, 0, (-LaneCount / 2 + laneIndex) * LaneSpacing), Quaternion.identity), laneIndex, false);
             }
         }
     }
@@ -50,7 +51,7 @@ public class GridBlockSpawner : MonoBehaviour
 
             SpawnRow(currentBlock.GetRowObjects(rowIndex), iSpawnPosition.x);
 
-            if (rowIndex >= testBlock.GetLongestLane())
+            if (rowIndex >= currentBlock.GetLongestLane() + 2)
             {
                 rowIndex = 0;
 

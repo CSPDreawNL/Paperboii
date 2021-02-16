@@ -17,32 +17,32 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void GridAddObject(GameObject iObject, int iGridLanePosition, bool iDoOrganize)
+    private void Start()
     {
-        grid[iGridLanePosition].Add(iObject);
+        EventManager.current.playerMoved += CheckForCollision;
+    }
 
-        if (iDoOrganize)
+    private void CheckForCollision(Vector3Int iPosition)
+    {
+        iPosition.z = iPosition.z + 2;
+
+        if (iPosition.z >= 0 && iPosition.z < grid.Count)
         {
-            GridLaneOrganize(iGridLanePosition);
+            for (int i = 0; i < grid[iPosition.z].Count; i++)
+            {
+                if (grid[iPosition.z][i] != null)
+                {
+                    if (grid[iPosition.z][i].transform.position.x - 1 == iPosition.x)
+                    {
+                        EventManager.current.OnPlayerDie();
+                    }
+                }
+            }
         }
     }
 
-    public void GridLaneOrganize(int iGridLanePosition)
+    public void GridAddObject(GameObject iObject, int iGridLanePosition, bool iDoOrganize)
     {
-        //List<GameObject> curLaneList = grid[iGridLanePosition];
-        //List<GameObject> resultList = new List<GameObject>();
-
-        //if (curLaneList.Count >= 1)
-        //{
-        //    resultList[0] = curLaneList[0];
-        //}
-
-        //for (int i = 1; i < curLaneList.Count; i++)
-        //{
-        //    if (curLaneList[i].transform.position.x < curLaneList[i].transform.position.x)
-        //    {
-
-        //    }
-        //}
+        grid[iGridLanePosition].Add(iObject);
     }
 }
