@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -483, y: 9}
-  m_SizeDelta: {x: 346.952, y: 43.349}
+  m_AnchoredPosition: {x: -483, y: 150}
+  m_SizeDelta: {x: 346.952, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4776749553176722296
 CanvasRenderer:
@@ -468,7 +468,7 @@ MonoBehaviour:
   papersTextPanel: {fileID: 5189427547118467044}
   moneyAmount: 0
   paperAmount: 0
-  playTime: 55
+  playTime: 0
 --- !u!1 &1841592378099592924
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,8 +503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 488, y: 26}
-  m_SizeDelta: {x: 346.952, y: 43.349}
+  m_AnchoredPosition: {x: 488, y: 150}
+  m_SizeDelta: {x: 346.952, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4309721256208267917
 CanvasRenderer:
@@ -713,8 +713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: 11}
-  m_SizeDelta: {x: 346.952, y: 43.349}
+  m_AnchoredPosition: {x: 7, y: 150}
+  m_SizeDelta: {x: 346.952, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3939044311573375039
 CanvasRenderer:

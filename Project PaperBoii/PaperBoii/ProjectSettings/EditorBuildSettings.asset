@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Reinier-Folder/Scenes/ReinierOptionsScreen.unity
     guid: 9a1cf55d2d59d13459d6c9034c06ecc3
   - enabled: 1
-    path: Assets/Scenes/Level.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Bo-Folder/Scenes/Bo-TestScene.unity
+    guid: ff69a717c6a3eb148bb735b719874f1d
   m_configObjects: {}

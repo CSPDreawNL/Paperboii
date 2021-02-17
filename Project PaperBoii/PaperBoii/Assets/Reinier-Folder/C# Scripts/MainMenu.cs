@@ -4,7 +4,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartButton()
     {
-        SceneManager.Instance.LoadScene("Level");
+        SceneManager.Instance.LoadScene("Bo-TestScene");
     }
     public void QuitButton()
     {
