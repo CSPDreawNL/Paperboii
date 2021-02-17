@@ -14,8 +14,4 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.Instance.LoadScene("ReinierOptionsScreen");
     }
-    public void BackButton()
-    {
-        SceneManager.Instance.LoadStartScene();
-    }
 }

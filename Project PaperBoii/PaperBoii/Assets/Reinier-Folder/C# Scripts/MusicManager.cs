@@ -6,12 +6,17 @@ public class MusicManager : MonoBehaviour {
 	static MusicManager instance = null;
 	private AudioSource audioSource;
 	
-	void Awake() {
-		if (instance != null) {
+	void Awake() 
+	{
+		if (instance != null) 
+		{
 			Destroy (gameObject);
-			print ("Duplicate music player self-destructing!");	}
-		else {	instance = this;
-			GameObject.DontDestroyOnLoad(gameObject);	}
+			print ("Duplicate music player self-destructing!");	
+		}
+		else 
+		{	instance = this;
+			DontDestroyOnLoad(gameObject);	
+		}
 	}
 
     private void Start()

@@ -1,20 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LoseScreen : MonoBehaviour
 {
-
-
-
-    void Start()
+    public void MainMenuButton()
     {
-        
+        SceneManager.Instance.LoadStartScene();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void RestartButton()
     {
-        
+        SceneManager.Instance.ReloadScene();
     }
 }

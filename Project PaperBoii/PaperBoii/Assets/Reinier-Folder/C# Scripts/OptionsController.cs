@@ -23,7 +23,6 @@ public class OptionsController : MonoBehaviour
     private void Update()
     {
         musicManager.ChangeVolume(volumeSlider.value);
-        
     }
 
     public void SaveAndExit()
