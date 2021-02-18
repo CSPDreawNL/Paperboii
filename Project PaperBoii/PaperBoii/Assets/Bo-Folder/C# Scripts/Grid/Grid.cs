@@ -32,7 +32,7 @@ public class Grid : MonoBehaviour
             {
                 if (grid[iPosition.z][i] != null)
                 {
-                    if (grid[iPosition.z][i].transform.position.x - 1 == iPosition.x)
+                    if (grid[iPosition.z][i].transform.position.x == iPosition.x)
                     {
                         EventManager.current.OnPlayerDie();
                     }

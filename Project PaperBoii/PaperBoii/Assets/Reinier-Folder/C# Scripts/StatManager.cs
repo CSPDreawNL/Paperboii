@@ -34,11 +34,16 @@ public class StatManager : MonoBehaviour
         moneyTextPanel.text = "$" + moneyAmount;
         papersText.text = "Papers: " + paperAmount;
         papersTextPanel.text = "Papers: " + paperAmount;
+
+        EventManager.current.onPlayerDie += Death;
+        Debug.Log("Instancie");
     }
 
     public void Death()
     {
+        Debug.Log("death");
         deathPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void Update()

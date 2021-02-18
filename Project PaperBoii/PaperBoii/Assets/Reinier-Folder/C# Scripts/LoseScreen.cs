@@ -9,5 +9,6 @@ public class LoseScreen : MonoBehaviour
     public void RestartButton()
     {
         SceneManager.Instance.ReloadScene();
+        Time.timeScale = 1;
     }
 }
