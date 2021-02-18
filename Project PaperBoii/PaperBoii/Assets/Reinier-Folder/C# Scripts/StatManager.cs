@@ -3,6 +3,7 @@ using TMPro;
 
 public class StatManager : MonoBehaviour
 {
+    [SerializeField] GameObject deathPanel;
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] TextMeshProUGUI moneyTextPanel;
     [SerializeField] TextMeshProUGUI timeText;
@@ -33,6 +34,11 @@ public class StatManager : MonoBehaviour
         moneyTextPanel.text = "$" + moneyAmount;
         papersText.text = "Papers: " + paperAmount;
         papersTextPanel.text = "Papers: " + paperAmount;
+    }
+
+    public void Death()
+    {
+        deathPanel.SetActive(true);
     }
 
     private void Update()

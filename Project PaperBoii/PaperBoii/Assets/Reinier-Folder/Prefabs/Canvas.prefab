@@ -724,6 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf8e33622036fc4e8e020d9a1838026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathPanel: {fileID: 4836630060791360499}
   moneyText: {fileID: 1656835605754800301}
   moneyTextPanel: {fileID: 8277386624845993791}
   timeText: {fileID: 5013370202593437305}
@@ -1171,7 +1172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3824415135213830186
 RectTransform:
   m_ObjectHideFlags: 0
