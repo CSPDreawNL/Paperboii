@@ -28,6 +28,12 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
+    public void ReloadScene()
+    {
+        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex);
+    }
+
     public void LoadScene(string name)
     {
         Debug.Log("Level load requested for: " + name);
@@ -36,7 +42,6 @@ public class SceneManager : MonoBehaviour
 
     public void QuitRequest()
     {
-        Debug.Log("I just wanna quit!");
         Application.Quit();
     }
 

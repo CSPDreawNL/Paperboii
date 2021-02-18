@@ -9,6 +9,6 @@ public class MiniGameAimMovement : MonoBehaviour
 
     void Update()
     {
-        myTrans.position = Camera.main.WorldToScreenPoint(attachedTrans.position) + new Vector3(Mathf.Cos(Time.time) * 2 + 1, Mathf.Sin(-Time.time / .5f)) * 100;
+        myTrans.position = Camera.main.WorldToScreenPoint(attachedTrans.position) + new Vector3(Mathf.Sin(Time.time) * 2 , Mathf.Sin(-Time.time / .5f)) * 100;
     }
 }
